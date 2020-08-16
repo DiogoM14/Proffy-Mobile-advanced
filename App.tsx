@@ -5,7 +5,7 @@ import { AppLoading } from 'expo';
 import { Archivo_400Regular, Archivo_500Medium, Archivo_700Bold, useFonts } from '@expo-google-fonts/archivo';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 
-import Onboarding from './src/Pages/Onboarding';
+import AppStack from './src/Routes/AppStack';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -23,7 +23,7 @@ export default function App() {
 
     return (
       <>
-        <Onboarding />
+        <AppStack />
         <StatusBar style="light" />
       </>
     );

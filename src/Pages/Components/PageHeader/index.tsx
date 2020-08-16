@@ -5,12 +5,19 @@ import { Feather } from '@expo/vector-icons';
 import { Container } from './styles';
 
 import OnboardingImg from '../../../assets/Background-header.png';
+import OnboardingImgGreen from '../../../assets/header-background.png';
 
-const PageHeader: React.FC = () => {
+interface PageHeaderProps {
+  color: string;
+  name: string;
+  background: string;
+}
+
+const PageHeader: React.FC<PageHeaderProps> = ({ color, name, background }) => {
   return (
-    <Container>
+    <Container style={{ backgroundColor: color }}>
       <Image source={OnboardingImg} resizeMode="contain" />
-      <Feather name="book-open" size={120} color="#fff" style={{position: 'absolute'}} />
+      <Feather name={name} size={120} color="#fff" style={{position: 'absolute'}} />
     </Container>
   );
 }
