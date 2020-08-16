@@ -1,13 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { AppLoading } from 'expo';
 
-import Landing from './src/Pages/Landing';
+import { Archivo_400Regular, Archivo_500Medium, Archivo_700Bold, useFonts } from '@expo-google-fonts/archivo';
+import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
+
+import Onboarding from './src/Pages/Onboarding';
 
 export default function App() {
-  return (
-    <>
-      <Landing />
-      <StatusBar style="light" />
-    </>
-  );
+  let [fontsLoaded] = useFonts({
+    Archivo_400Regular,
+    Archivo_500Medium,
+    Archivo_700Bold,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+
+    return (
+      <>
+        <Onboarding />
+        <StatusBar style="light" />
+      </>
+    );
+  }
 }
